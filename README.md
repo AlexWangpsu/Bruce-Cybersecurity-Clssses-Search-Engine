@@ -6,16 +6,20 @@ The BRUCE Engine is a database search function that allows a user to search for 
 ### Data Gathering
 The main method to gather course data at the moment is to use cybersecurity conference program commitee lists to get a list of professors. After that, we use a google search script to get their personal website, and then crawl each of the professor's personal websites to find likely course syllabi. In order to avoid duplicates, each new list of professors from a conference is compared against the total list of professor that have already been found.
 
+*I have uploaded of all the courses we collected into Course_Collected (All the actual courses page)
+*ConferenceFiles have all the professor personal websites that we scraped from 
 
-### Page Classification 
+
+### Page Classification and Feature Extrctioin 
 * [Naive Bayes] Feed directly with text corpus, achieved >90% test accuracy (from google search corpus).
 * [SVM] Feed directly with text corpus achieved >95% test accuracy (from google search corpus).
 * [LSTM] Feed directly with text corpus, title, numbers of hyperlinks, numbers of pictures achieved >97% test  accuracy(from google search corpus). (reference:https://www.linkedin.com/pulse/identifying-clickbaits-using-machine-learning-abhishek-thakur/) 
 * Currently using Keywords matching  from file Courseextraction.py. 
 * Note: the distributioin of the dataset varies depending of the web scraping methods, therefore the testing accuracy might change. 
 
-### Feature Extraction 
-Metadata extraction including: Professor names& phone number& email address, school name, course title, year of course.
+* Metadata extraction including: Professor names& phone number& email address, school name, course title, year of course.
+
+
 
 
 
