@@ -10,7 +10,7 @@ The main method to gather course data at the moment is to use cybersecurity conf
 *ConferenceFiles have all the professor personal websites that we scraped from 
 
 
-### Page Classification and Feature Extrctioin 
+### Page Classification 
 * [Naive Bayes] Feed directly with text corpus, achieved >90% test accuracy (from google search corpus).
    -Data-Collection-naivebayes.py
 * [SVM] Feed directly with text corpus achieved >95% test accuracy (from google search corpus).
@@ -21,8 +21,9 @@ Currently using Keywords matching from file * -Data-Collection-Courseextraction.
 
 Note: the distributioin of the dataset varies depending of the web scraping methods, therefore the testing accuracy might change. 
 
-Metadata extraction including: Professor names& phone number& email address, school name, course title, year of course.
+### Feature Extrctioin 
 
+*Metadata extraction including: Professor names& phone number& email address, school name, course title, year of course. -DataCollection-FeatureClassification.py
 
 
 
@@ -88,9 +89,8 @@ For a small change in the code or if only changing databases in MongoDB, it's pr
 
 ## Authors
 
-* **Weiqin Wang** - *Initial work* - *Summer 2018 - Spring 2019*
-* **Andrew Yang** - *Initial work* - *Summer 2018 - Spring 2019*
-
+* **Weiqin Wang** - *Initial work* - *Summer 2018 - Spring 2019* 
+* **Andrew Yang** - *Initial work* - *Summer 2018 - Spring 2019* 
 
 ## Acknowledgments
 
