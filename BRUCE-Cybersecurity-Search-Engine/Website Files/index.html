@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="/finbruce/brucefav.ico" type="image/x-icon">
+<link rel="icon" href="/finbruce/brucefav.ico" type="image/x-icon">
+<title>Bruce Cybersecurity Course Search Engine</title>
+<style>
+  body {
+   font-family: Roboto;
+  }
+
+  * {
+   box-sizing: border-box;
+  }
+        
+        
+  div.search{
+    width:100%;
+    margin:auto;      
+  }
+  div.important{
+    width: 80%;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+	div.bot{
+		color:gray;
+		font-size:21px;
+	}
+  form.a{
+    display: inline-block
+  }
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+  	border: 1px solid grey;
+    width:60%;
+    background: #f1f1f1;
+  }
+  form.example button {
+    width: 25%;
+    padding:10px;
+   	background: #000000;
+   	color: #FFF701;
+   	font-size: 17px;
+   	border: 1px solid grey;    	
+		border-left: none;
+   	cursor: pointer;
+	}
+
+	form.example button:hover {
+    background: #505050;
+	}
+	example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+	#search{
+		text-align:center;
+	}
+	img{
+		display:block;
+		margin-top: 60px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 70%;
+		height:auto%;
+	}       
+  .bot{
+	  position:absolute;
+    width:50%;
+    font-size: 24px;
+	  bottom:5%;
+	  right:5%;
+  }
+	
+	</style>
+</head>
+
+<!-- 
+Simple HTML Body, /finbruce/bruce1.png is the path to the image.
+-->
+<body> 
+    <div class="important" >
+	<img class ="frontimg" src = "/finbruce/bruce1.png"></img>
+     <h1 align= "center" style="font-size: 36px; font-family:Roboto;">
+        Search Engine for Cybersecurity Learning Resources
+     </h1>
+	<div id ="search">
+     <form class="example" action="result.html" method="GET">
+        <input type="text" placeholder="Search.." name = "search">
+	<button type="submit">Search</button> 
+	</div>
+    </div>
+    <div class = "bot" >
+      <div style="float:right;">
+      <strong id = "classcount"></strong><br>
+      <strong id = "profcount"></strong><br>
+      <strong id = "unicount"></strong><br>
+      </div>
+    </div>
+
+    </body>
+</html> 
+
+<!--
+	Simple AJAX call using JQuery
+	Gets info from stat.php, which is then transferred into three fields: 
+		classcount
+		unicount
+		profcount
+	Which is then transferred to the div class "bot"
+-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+<script type="text/javascript">
+      $(function(){
+        $.ajax({type: 'POST',
+        	url: "stat.php",
+        	cache: false,
+		dataType:'json',
+        	success:function (done) {
+			var classcount = done[0];
+			var unicount = done[1];
+			var profcount = done[2];
+			$("#classcount").text(classcount + " Courses");
+			$("#unicount").text(unicount + "  Universities");
+			$("#profcount").text(profcount + " Instructors");
+		}
+	})
+      });
+</script>
+
+

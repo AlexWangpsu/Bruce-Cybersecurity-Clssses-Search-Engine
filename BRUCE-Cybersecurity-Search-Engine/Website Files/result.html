@@ -1,0 +1,515 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" href="/finbruce/brucefav.ico" type="image/x-icon">
+<link rel="icon" href="/finbruce/brucefav.ico" type="image/x-icon">
+<title>Bruce Cybersecurity Course Search Engine</title>
+
+<style type="text/css">
+	.container{
+	    font-family:"Roboto",Arial,Verdana,sans-serif;
+	    width:100% 
+	}
+	.mb20 { 
+		margin-top: 20px;
+		margin-bottom: 20px;
+		
+	} 
+
+	hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
+	hgroup h1 { font: 500 normal 1.625em "Roboto",Arial,Verdana,sans-serif; 
+			color: #2a3644; margin-top: 0; line-height: 1.15; }
+	hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin: 0; padding-bottom: 20px; padding-right: 5px; }
+
+	.search-result .thumbnail { border-radius: 0 !important; }
+	.search-result:first-child { margin-top: 0 !important; }
+	.search-result { margin-top: 20px; }
+	.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
+	.search-result ul { padding-left: 0 !important; list-style: none;  }
+	.search-result ul li { font: 400 normal .85em "Roboto",Arial,Verdana,sans-serif;  line-height: 30px; }
+	.search-result ul li i { padding-right: 5px; }
+	.search-result .col-md-7 { position: relative; }
+	.search-result h3 { font: 500 normal 1.375em "Roboto",Arial,Verdana,sans-serif; margin-top: 0 !important; margin-bottom: 10px !important; }
+	.search-result h3 > a, .search-result i { color: #248dc1 !important; }
+	.search-result p { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; } 
+	.search-result span.plus { position: absolute; right: 0; top: 126px; }
+	.search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
+	.search-result span.plus a:hover { background-color: #414141; }
+	.search-result span.plus a i { color: #fff !important; }
+	.search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
+.brucesearch {
+	height:10%;
+	width:auto;
+	display:inline-block;
+	font-family:"Roboto",Arial,Verdana,sans-serif;
+	} 
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+#tle{
+  font-weight: bold;
+}
+   
+form.a{
+  display: inline-block
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  width:50%;
+	font-family: Roboto;
+  background: #f1f1f1;
+	display:inline-block;
+   }
+    form.example::after {
+        content: ""; 
+        clear: both;
+        display: table;
+    }
+    form.example button {
+    	width: 10%;
+    	padding: 10px;
+    	background: #000000;
+    	color: #FFF701;
+    	font-size: 17px;
+	border-left:none;
+	border:1px solid grey;
+    	cursor: pointer;
+    }
+
+    form.example button:hover {
+    		background: #0b7dda;
+    }
+.collapse{
+	font-family:Roboto;
+	word-wrap:break-word;
+}		
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-family: Roboto;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    font-family:Roboto;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+hr { 
+    display: block;
+    margin-before: 0.5em;
+    margin-after: 0.5em;
+    margin-start: auto;
+    margin-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+</style>
+<!-- 
+	Simple HTML creating the searchbar, and currently unused dropdown search setting feature.
+-->
+<label id = "testcase"  class="container">
+     <hgroup class="mb20">
+	<form class="example" action="result.html" method="GET">
+	<div>
+	<a href= "/index.html"><img src="/finbruce/bruce2.png" width="100" height="100" border="0" align="middle" /></a>
+	
+        <input type="text" id = "search" placeholder="Search.." name = "search"><button type="submit">Search</button> 
+  </div>
+	</form>
+	
+    	<h1>
+<div class="dropdown" style="float:right";>
+  <button class="dropbtn">Sort by</button>
+  <div class="dropdown-content">
+    <a href="#relevance">Relevance</a>
+    <a href="#quality">Quality</a>
+    <a href="#metadata">Metadata</a>
+  </div>
+</div>	
+				
+<!--
+	The javascript below, myFunction, gets the string of the URL and cuts it so that the actual search term is preserved.
+-->
+</h1>
+   	<h2 class="lead" style="float:left;">Results: <strong class="text-danger" id = "resnumber"></strong> learning resources were found for </h2>
+	<h2 class="lead" id = "tle"></h2>
+    </hgroup>
+	<script>
+	 var carName = '';
+              function myFunction() {
+             
+                    var string1 = window.location.search;
+    
+                    var res = document.getElementById('tle');
+                    res.innerHTML = string1.slice(8).replace('+',' ');
+        	    return res.innerHTML;
+	 }    
+         carName =  myFunction();    
+	</script>	
+	
+	<!--
+		This part gives the page number of the search, detected by looking for a # anchor and then the number after that #.
+		In theory this should run every time the page reloads, but there is a bug regarding the pagination buttons below.
+	-->
+	<script>
+         var curpage = 0 ;
+	      function pageFunction(){
+		var weburl = window.location.href;
+	 	if(weburl.search('#')== -1){
+			return 1;
+		}
+		else{
+			var paaage = window.location.hash;
+			return parseInt(paaage.slice(1));
+		}
+	}
+	$(document).ready(pageFunction);
+	curpage = pageFunction();	
+	</script>
+
+<div id = "containerElement"><div>
+    <div class="col-xs-12 col-sm-6 col-md-12" id = "results" style="margin-top: 20px;">
+					
+	</div>
+<div class="pagination">
+<a href="#">&laquo;</a>
+  <a class="clickme" href="#1">1</a>
+  <a class="clickme" href="#2">2</a>
+  <a href="#">&raquo;</a> 
+</div>
+	 
+<!-- 
+	This function displays all the results that are contained within a single search element cell. It is called by the AJAX call function, and all it does is take the content found and place them in the correct html elements. You'll see that replaceWith is the best function to use, because the other common ways will cause all elements of a certain id selector (#).
+-->
+<script type="text/javascript">
+function displayResults(domain,name,title,year,content,phone,email,textbook,test1,score){
+		var domain = domain.toString();
+		var name = name.toString();
+		var hashplace = 0;
+		if(name.search('&')!=-1){
+			hashplace = name.search('&');
+			name = name.substring(0,hashplace);
+		}
+
+	        var title = title.toString();
+		var year = year.toString();
+		var score = score.toFixed(3);
+		//alert((content));
+		var content = content.replace(/\\n/g,"").replace('[','').replace(']','');
+		//content = content.replace("\\","");
+		var textbook = textbook;
+		textbook = textbook.replace('[','').replace(']','');
+		textbook = textbook.replace(/'/g,'').replace('*','');
+		
+		if(content.indexOf(carName) != -1){
+			var location = content.indexOf(carName);
+			var endlocation = location + carName.length;
+			var oldcontent = content;
+			content = content.slice(location,endlocation);
+			addcontent = oldcontent.slice(endlocation, endlocation+300);
+		}
+		else{
+			var oldcontent = content;
+			content = "";
+			addcontent = oldcontent.slice(0,300);
+		}
+	//	alert(""+ domain + name + title);
+		var html = $(".oneresult").html();
+		$("#results").append(html);
+		$(".domain").replaceWith(domain);
+		$(".name").replaceWith(name);
+		$(".title").replaceWith(title);
+		$(".year").replaceWith(year);
+		$(".content").replaceWith('<p><b>'+content+'</b>'+addcontent+'</p>');
+		$(".score").replaceWith(score);
+		moreinfo =""
+		
+		if(textbook == ''){
+			moreinfo += "Textbook: None ";
+		}
+		else{
+			moreinfo += "Textbook: " + textbook;
+		}
+		var test = test1.replace('[','').replace(']','');
+		test = test.split(",");
+		try{		
+		var finale = "Final Exam: " + (test[0]).toString().replace('True','Yes').replace('False','No');
+		var mid =  "Midterm: " + (test[1]).toString().replace('True','Yes').replace('False','No');
+		var proj =  "Project: " + (test[2]).toString().replace('True','Yes').replace('False','No');
+		var quiz =  "Quizzes: " + (test[3]).toString().replace('True','Yes').replace('False','No');
+		}
+		catch(err){
+		var finale = "Final Exam: N/A";	
+		var mid = "Midterm: N/A";
+		var proj ="Project: N/A";
+		var quiz = "Quizzes: N/A";
+		}
+		if (phone == ''){
+			phone ='N/A';
+		}
+		if (email ==''){
+			email ='N/A';
+		}
+		var phone = "Phone: "+ phone.toString();
+		var email = "Email: "+ email.toString();	
+			
+		$(".collapsecontent").replaceWith(moreinfo+'<br>'+finale+'<br>'
+		+mid+'<br>'+proj+'<br>'+quiz+'<br>'+phone+'<br>'+email);
+        }      
+    </script>
+  <!--
+		This setPages function manages the pagination buttons below the search elements. It starts by calculating the first numbered button (there are only 10 on a page at a time), and then getting the current page. Then, it assigns all the other buttons their page #.
+		Then, the left and right buttons are assigned attributes to the correct # anchor and to refresh the page on click. Unfortunately, the page refreshes but the elements don't change. This is a pretty big bug that I've been unable to fix, it broke suddenly one day when I had not changed the code in multiple weeks. Good luck.
+	-->	
+	
+	function setPages(pagenum,curpage){
+		$(".pagination").empty();
+		
+		var left = '<a id="left">&laquo;</a>';
+		var right = ' <a id="right">&raquo;</a>';
+		$(".pagination").append(left);
+		var startpage;
+		if (pagenum<=10){
+			startpage = 1;
+		}	
+		else{
+			startpage = curpage;
+		}
+		for(var k=startpage; k<startpage+10; k++){
+			if(k<=pagenum){
+			var html = $(".botpage").html();
+			$(".pagination").append(html);
+			}
+			else{break;}
+		}
+		$(".pagination").append(right);
+		$(".botnum").each(function(index){
+			var z = index+startpage;	
+			$(this).text(z);
+			if(z==curpage){
+				$(this).attr('class','active');
+			}
+			$(this).attr('href','#'+z.toString());
+			$(this).attr('onClick',"window.location.href=window.location.href");
+		});
+		$("#left").attr('href','#'+(curpage-1).toString());
+		$("#left").attr('onClick',"window.location.href=window.location.href");
+		$("#right").attr('href','#'+(curpage+1).toString());
+		$("#right").attr('onClick',"window.location.href=window.location.href");
+
+	}
+    </script>
+    
+    
+			
+	<!--
+		This sets the url for all the images that are in the search elements and the title of the webpage displayed.
+		Also, when the "expand cell" button is pressed, the information is handled in this function with .btn.btn-info 
+	-->
+	function urlSet(url,images){
+		$(".link").each(function(index){
+			$(this).attr('href',url[index]);
+		});
+		$(".screenlink").each(function(index){
+			$(this).attr('href',url[index]);
+		});
+
+		$(".screenshot").each(function(index){
+			var image = images[index].toString();
+			$(this).attr('src',image);
+		});
+		$(".btn.btn-info").each(function(index){
+			var res = index+1;
+			$(this).attr('data-target','#info'+res.toString());	
+		});
+		$(".collapse").each(function(index){
+			var id = index+1;
+			$(this).attr('id','info'+id.toString());
+		});
+	}
+<!--
+	This is the ajax function. All it does is call the appropriate array of information with the search and the currentPage.
+	Then it pushes that info into the appropriate functions at the end.
+	-->
+</script>
+    <script type="text/javascript">
+      $(function(){
+        $.ajax({type: 'POST',
+        	url: "test.php",
+        	cache: false,
+		data: {title:carName,page:curpage},
+		dataType:'json',
+        	success:function (done) {
+			
+        		var arr = done.arr;
+			var num = done.num;
+			var pagenum = done.pages;
+			$("#resnumber").text(num);	
+			var links = [];
+			var images = [];
+		
+			$("#results").empty();	
+			for(var i = 0; i<arr.length;i++){
+				var $domain = arr[i].domain;
+				var $name = arr[i].name;
+				var $title = arr[i].title;
+				var $year = arr[i].year;
+				var $content = arr[i].content;
+				var $url = arr[i].url;
+				var $phone = arr[i].phone;
+				var $email = arr[i].email;
+				var $textbook = arr[i].textbook;
+				var $test = arr[i].test;
+				var $image = arr[i].image;
+				var $score = arr[i].score;
+				
+				links.push($url);
+				images.push($image);
+				displayResults($domain, $name, $title, $year, $content, $phone, $email, $textbook, $test, $score);
+		
+			}
+			urlSet(links,images);
+			setPages(pagenum,curpage);
+			
+        	}
+        })
+      });
+    </script>
+<!-- 
+	SAME SCRIPT BUT FOR THE BOTTOM BUTTONS
+	I found this fix to be necessary, otherwise there was pretty much no other way the pagination buttons would respond.d
+-->
+    <script type="text/javascript">
+      $(document).ready(function(){
+	$('label').on("click",".botnum",function(e){
+	curpage= parseInt($(this).text());
+        $.ajax({type: 'POST',
+        	url: "test.php",
+        	cache: false,
+		data: {title:carName,page:curpage},
+		dataType:'json',
+        	success:function (done) {
+        		var arr = done.arr;
+			var num = done.num;
+			var pagenum = done.pages;
+			$("#resnumber").text(num);	
+			var weburl = window.location.href;
+		
+			var links = [];
+			var images = [];
+			$("#results").empty();
+			for(var i = 0; i<arr.length;i++){
+				var $domain = arr[i].domain;
+				var $name = arr[i].name;
+				var $title = arr[i].title;
+				var $year = arr[i].year;
+				var $content = arr[i].content;
+				var $url = arr[i].url;
+				var $phone = arr[i].phone;
+				var $email = arr[i].email;
+				var $textbook = arr[i].textbook;
+				var $test = done.arr[i].test;
+				var $image = arr[i].image;
+				var $score = arr[i].score;
+				links.push($url);
+				images.push($image);
+				displayResults($domain, $name, $title, $year, $content, $phone, $email, $textbook, $test, $score);
+	
+			
+			}
+			urlSet(links,images);
+			setPages(pagenum);
+			
+        	}
+        });
+	});
+      });
+    </script>
+<!--
+	This html code just creates the standard framework for each cell, that is then changed for each search element and added to the page.
+	-->
+    <script class="botpage" type="text/html">
+	<a class="botnum"></a>
+    </script> 
+    <script class="oneresult" type="text/html">
+    	<article class="search-result row">
+	<div class="col-xs-12 col-sm-12 col-md-3">
+		<a class = "screenlink"><img class = "screenshot" style="width:250px;height:150px;"></img></a>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-2">
+		<ul class="meta-search">
+			<li><i class="glyphicon glyphicon-bookmark"></i> <span class = "domain"></span></li>
+			<li><i class="glyphicon glyphicon-calendar"></i> <span class = "year"></span></li>
+			<li><i class="glyphicon glyphicon-user"></i> <span class = "name"></span></li>	
+			<li><i class="glyphicon glyphicon-signal"></i> <span class = "score"></span></li>
+		</ul>
+	</ul>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+	<h3><a class = "link" href="" title="here"><p class ="title"></p></a></h3>		
+		<p class = "content"></p>
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target=".collapse">More Information</button>
+  			<div class="collapse">
+				<p class = "collapsecontent"></p>
+  		</div>
+						
+	</div>
+	<span class="clearfix borda"></span>
+
+	</article>
+	<hr>
+    </script>
+    
+</label>
+
