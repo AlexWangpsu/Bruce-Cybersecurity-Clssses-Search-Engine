@@ -17,7 +17,7 @@ The main method to gather course data at the moment is to use cybersecurity conf
    -Data-Collection-test_svm.py
 * [LSTM] Feed directly with text corpus, title, numbers of hyperlinks, numbers of pictures achieved >97% test  accuracy(from google search corpus). (reference:https://www.linkedin.com/pulse/identifying-clickbaits-using-machine-learning-abhishek-thakur/) 
 
-* Currently using Keywords matching from file ### Courseextraction.py seems to work best given the professor personal website 
+* Currently using Keywords matching from file * -Data-Collection-Courseextraction.py seems to work best given the professor personal website 
 
 * Note: the distributioin of the dataset varies depending of the web scraping methods, therefore the testing accuracy might change. 
 
