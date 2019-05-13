@@ -11,7 +11,7 @@ The main method to gather course data at the moment is to use cybersecurity conf
 
 
 ### Page Classification 
-Note all file in -DataCollection-
+Note all files in -DataCollection-
 
 * [Naive Bayes] Feed directly with text corpus, achieved >90% test accuracy (from google search corpus).
    Script:naivebayes.py
@@ -26,7 +26,7 @@ The distributioin of the dataset varies depending of the web scraping methods, t
 
 
 ### Feature Extrctioin 
-Note all file in -DataCollection-
+Note all files in -DataCollection-
 
 *Metadata extraction including: Professor names& phone number& email address, school name, course title, year of course. File: FeatureClassification.py
 *Screenshot website into thumbnail using file Screenshot.py
