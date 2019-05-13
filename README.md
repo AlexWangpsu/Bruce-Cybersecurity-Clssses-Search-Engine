@@ -11,6 +11,7 @@ The main method to gather course data at the moment is to use cybersecurity conf
 * [Naive Bayes] Feed directly with text corpus, achieved >90% test accuracy (from google search corpus).
 * [SVM] Feed directly with text corpus achieved >95% test accuracy (from google search corpus).
 * [LSTM] Feed directly with text corpus, title, numbers of hyperlinks, numbers of pictures achieved >97% test  accuracy(from google search corpus). (reference:https://www.linkedin.com/pulse/identifying-clickbaits-using-machine-learning-abhishek-thakur/) 
+* Currently using Keywords matching  from file Courseextraction.py. 
 * Note: the distributioin of the dataset varies depending of the web scraping methods, therefore the testing accuracy might change. 
 
 ### Feature Extraction 
