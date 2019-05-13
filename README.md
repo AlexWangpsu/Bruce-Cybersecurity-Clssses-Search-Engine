@@ -11,6 +11,8 @@ The main method to gather course data at the moment is to use cybersecurity conf
 
 
 ### Page Classification 
+Note all file in -DataCollection-
+
 * [Naive Bayes] Feed directly with text corpus, achieved >90% test accuracy (from google search corpus).
    Script:naivebayes.py
 * [SVM] Feed directly with text corpus achieved >95% test accuracy (from google search corpus).
@@ -19,20 +21,16 @@ The main method to gather course data at the moment is to use cybersecurity conf
 
 Currently using Keywords matching from Script: -Courseextraction.py seems to work best given the professor personal website 
 
-Note all file in -DataCollection-
+The distributioin of the dataset varies depending of the web scraping methods, therefore the testing accuracy might change. 
 
-Note: the distributioin of the dataset varies depending of the web scraping methods, therefore the testing accuracy might change. 
+
 
 ### Feature Extrctioin 
+Note all file in -DataCollection-
 
 *Metadata extraction including: Professor names& phone number& email address, school name, course title, year of course. File: FeatureClassification.py
 *Screenshot website into thumbnail using file Screenshot.py
 *Concatnate all csv in the folder using file Concatenate.py
-
-Note all file in -DataCollection-
-
-
-
 
 
 ### Accessing the HTML/CSS Files
