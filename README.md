@@ -2,15 +2,11 @@
 
 The BRUCE Engine is a database search function that allows a user to search for a large number of cybersecurity courses through the domain bruce.ist.psu.edu. A search can return many courses in the area of cybersecurity. Each search result contains information such as professor, university, and textbook. It also includes a link to the course syllabus website and a screenshot preview of what the website looks like.
 
-## Process
-
-
 
 ### Data Gathering
 The main method to gather course data at the moment is to use cybersecurity conference program commitee lists to get a list of professors. After that, we use a google search script to get their personal website, and then crawl each of the professor's personal websites to find likely course syllabi. In order to avoid duplicates, each new list of professors from a conference is compared against the total list of professor that have already been found.
 
 
-### Course Filtering
 ### Page Classification 
 * [Naive Bayes] Feed directly with text corpus, achieved >90% test accuracy (from google search corpus).
 * [SVM] Feed directly with text corpus achieved >95% test accuracy (from google search corpus).
@@ -21,7 +17,6 @@ The main method to gather course data at the moment is to use cybersecurity conf
 Metadata extraction including: Professor names& phone number& email address, school name, course title, year of course.
 
 
-### Feature Classification
 
 ### Accessing the HTML/CSS Files
 When you login to bruce.ist.psu.edu, you'll be logged into /home/xxx1234. Go to the directory bruce by using these commands.
